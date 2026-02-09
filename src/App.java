@@ -29,5 +29,12 @@ public class App {
         Seller newSeller = new Seller(null ,"Gustavo", "gustavo@gmail.com", LocalDate.parse("12/12/2012", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 3000.00, new Department(1, null));
         sellerDao.insert(newSeller);
         System.out.println("Inserted! New id = " + newSeller.getId());
+
+        System.out.println("=== TEST 5: seller update ===");
+        seller = sellerDao.findByID(1);
+        seller.setName("Martha Waine");
+        sellerDao.update(seller);
+        System.out.println("Update completed!");
+
     }
 }
