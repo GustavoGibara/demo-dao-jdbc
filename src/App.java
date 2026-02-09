@@ -1,7 +1,10 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
+import model.entities.Department;
 import model.entities.Seller;
 
 public class App {
@@ -22,5 +25,9 @@ public class App {
         sellers =  sellerDao.findAll();
 
         sellers.forEach(System.out::println);
+        System.out.println("=== TEST 4: seller insert ===");
+        Seller newSeller = new Seller(null ,"Gustavo", "gustavo@gmail.com", LocalDate.parse("12/12/2012", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 3000.00, new Department(1, null));
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! New id = " + newSeller.getId());
     }
 }
