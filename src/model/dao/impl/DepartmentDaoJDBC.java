@@ -50,9 +50,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
             rs =  st.executeQuery();
 
             if (rs.next()){
-                int departmentId = rs.getInt("Id");
-                String departmentName = rs.getString("Name");
-                Department dep = new Department(departmentId , departmentName);
+                Department dep = instatiedDepartment(rs);
                 return dep;
             }
             return null;
@@ -73,6 +71,12 @@ public class DepartmentDaoJDBC implements DepartmentDao{
     }
 
 
+    public Department instatiedDepartment(ResultSet rs) throws SQLException {
+        int departmentId = rs.getInt("Id");
+        String departmentName = rs.getString("Name");
+        Department dep = new Department(departmentId , departmentName);
 
+        return dep;
+    }
 
 }
