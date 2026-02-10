@@ -17,8 +17,13 @@ public class App2 {
 
         System.out.println("=== TEST 2: findAll ===");
         List<Department> list = departmentDao.findall();
-
         list.forEach(System.out::println);
+        
+        System.out.println("=== TEST 3: insert ===");
+        Department newDep =  new Department(null, "Office");
+        departmentDao.insert(newDep);
+        System.out.println("Inserted! New id: " + newDep.getId() );
+
     }
 
     
