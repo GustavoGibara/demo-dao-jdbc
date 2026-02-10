@@ -24,6 +24,10 @@ public class App2 {
         departmentDao.insert(newDep);
         System.out.println("Inserted! New id: " + newDep.getId() );
 
+        System.out.println("=== TEST 4: update ===");
+        dep.setName("D2");
+        departmentDao.update(dep);
+        System.out.println("Update completed");        
     }
 
     
